@@ -1,7 +1,7 @@
-<section class="container py-3 theme-section" style="border-bottom:1px solid #eee;">
-  <form id="theme-customizer-form" class="row align-items-center g-2">
+<section class="container py-3 theme-section shadow-sm bg-light rounded mb-3">
+  <form id="theme-customizer-form" class="row g-2 align-items-center">
     <div class="col-auto">
-      <label for="colorScheme" class="form-label mb-0">Color Scheme:</label>
+      <label for="colorScheme" class="form-label mb-0 fw-semibold">Color Scheme:</label>
       <select id="colorScheme" class="form-select form-select-sm">
         <option value="default">Default</option>
         <option value="blue">Blue</option>
@@ -12,7 +12,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <label for="textAlign" class="form-label mb-0">Text Align:</label>
+      <label for="textAlign" class="form-label mb-0 fw-semibold">Text Align:</label>
       <select id="textAlign" class="form-select form-select-sm">
         <option value="left">Left</option>
         <option value="center">Center</option>
@@ -20,7 +20,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <label for="fontSize" class="form-label mb-0">Font Size:</label>
+      <label for="fontSize" class="form-label mb-0 fw-semibold">Font Size:</label>
       <select id="fontSize" class="form-select form-select-sm">
         <option value="1em">Normal</option>
         <option value="1.2em">Large</option>
@@ -29,67 +29,3 @@
     </div>
   </form>
 </section>
-
-<script>
-(function () {
-  const root = document.documentElement;
-  const body = document.body;
-  const themeSection = document.querySelector('.theme-section');
-
-  document.getElementById('colorScheme').addEventListener('change', function (e) {
-    const val = e.target.value;
-    body.className = body.className.replace(/\btheme-\w+\b/g, '');
-    if (val !== 'default') body.classList.add('theme-' + val);
-  });
-
-  document.getElementById('textAlign').addEventListener('change', function (e) {
-    root.style.setProperty('--custom-text-align', e.target.value);
-  });
-
-  document.getElementById('fontSize').addEventListener('change', function (e) {
-    root.style.setProperty('--custom-font-size', e.target.value);
-  });
-})();
-</script>
-
-<style>
-:root {
-  --custom-text-align: left;
-  --custom-font-size: 1em;
-}
-
-/* Apply text-align and font-size to the whole body */
-body {
-  text-align: var(--custom-text-align);
-  font-size: var(--custom-font-size);
-  background-color: var(--primary-bg, #fff);
-  color: var(--primary-text, #000);
-}
-
-/* Theme background colors */
-.theme-blue {
-  --primary-bg: #e3f2fd;
-}
-.theme-green {
-  --primary-bg: #e8f5e9;
-}
-.theme-yellow {
-  --primary-bg: #fffde7;
-}
-.theme-pink {
-  --primary-bg: #fce4ec;
-}
-.theme-dark {
-  --primary-bg: #222;
-  --primary-text: #fff;
-}
-
-/* Also apply the theme background to the .theme-section */
-.theme-section {
-  background-color: var(--primary-bg, #f8f9fa);
-  color: var(--primary-text, #000);
-  text-align: var(--custom-text-align);
-  font-size: var(--custom-font-size);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-</style>
