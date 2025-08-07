@@ -1,14 +1,19 @@
-<div class="search-bar flex items-center gap-2 mb-6">
-  <input type="text" id="search-input" class="border rounded-lg px-4 py-2 w-full" placeholder="Search products..." oninput="filterProducts()">
-  <button class="button" onclick="filterProducts()">Search</button>
+<div class="search-bar flex items-center gap-2 mb-6 max-w-xl mx-auto">
+  <div class="relative w-full">
+    <input 
+      type="text" 
+      id="search-input" 
+      class="border border-gray-300 rounded-full px-4 py-2 w-full pl-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Search products..." 
+      oninput="filterProducts()"
+    />
+    <span class="absolute left-3 top-2.5 text-gray-400">
+      🔍
+    </span>
+  </div>
+  <button 
+    class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-full transition duration-200" 
+    onclick="filterProducts()">
+    Search
+  </button>
 </div>
-<script>
-function filterProducts() {
-  var input = document.getElementById('search-input').value.toLowerCase();
-  var products = document.querySelectorAll('.product-card');
-  products.forEach(function(card) {
-    var title = card.querySelector('h3').textContent.toLowerCase();
-    card.style.display = title.includes(input) ? '' : 'none';
-  });
-}
-</script>
