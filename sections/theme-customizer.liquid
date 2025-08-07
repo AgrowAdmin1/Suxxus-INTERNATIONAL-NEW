@@ -29,34 +29,50 @@
     </div>
   </form>
 </section>
+
 <script>
 (function() {
-  var root = document.documentElement;
+  const root = document.documentElement;
+  const body = document.body;
+
   document.getElementById('colorScheme').addEventListener('change', function(e) {
-    var v = e.target.value;
-    root.classList.remove('theme-blue','theme-green','theme-yellow','theme-pink','theme-dark');
-    if(v !== 'default') root.classList.add('theme-' + v);
+    const val = e.target.value;
+    body.className = body.className.replace(/\btheme-\w+\b/g, ''); // Remove previous theme
+    if(val !== 'default') body.classList.add('theme-' + val);
   });
+
   document.getElementById('textAlign').addEventListener('change', function(e) {
     root.style.setProperty('--custom-text-align', e.target.value);
   });
+
   document.getElementById('fontSize').addEventListener('change', function(e) {
     root.style.setProperty('--custom-font-size', e.target.value);
   });
+
+  // Optional: Add localStorage to persist across page reloads (uncomment if needed)
+  // You can store and re-apply previous selections here
+
 })();
 </script>
+
 <style>
 :root {
   --custom-text-align: left;
   --custom-font-size: 1em;
 }
-body, .section-blue, .section-green, .section-yellow, .section-pink {
+
+/* Applies text-align and font-size globally */
+body {
   text-align: var(--custom-text-align);
   font-size: var(--custom-font-size);
+  background-color: var(--primary-bg, #fff);
+  color: var(--primary-text, #000);
 }
-.theme-blue { --primary-bg: #e3f2fd; }
-.theme-green { --primary-bg: #e8f5e9; }
-.theme-yellow { --primary-bg: #fffde7; }
-.theme-pink { --primary-bg: #fce4ec; }
-.theme-dark { --primary-bg: #222; --primary-text: #fff; }
+
+/* Theme colors */
+.theme-blue    { --primary-bg: #e3f2fd; }
+.theme-green   { --primary-bg: #e8f5e9; }
+.theme-yellow  { --primary-bg: #fffde7; }
+.theme-pink    { --primary-bg: #fce4ec; }
+.theme-dark    { --primary-bg: #222; --primary-text: #fff; }
 </style>
