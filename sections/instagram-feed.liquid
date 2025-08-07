@@ -1,9 +1,31 @@
-<section class="section-green" style="text-align:center;">
-  <h2>Join the Movement. #BuiltToFit</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1em;">
-    <img src="{{ 'ig1.jpg' | asset_url }}" alt="Instagram 1" style="border-radius:12px;">
-    <img src="{{ 'ig2.jpg' | asset_url }}" alt="Instagram 2" style="border-radius:12px;">
-    <img src="{{ 'ig3.jpg' | asset_url }}" alt="Instagram 3" style="border-radius:12px;">
-    <!-- Add more images as needed -->
+<section class="section-green" style="text-align: center; padding: 3em 1em;">
+  <h2 style="margin-bottom: 1em;">Join the Movement. <span style="color: #388e3c;">#BuiltToFit</span></h2>
+
+  <div style="position: relative;">
+    <button onclick="scrollSlider(-1)" style="position: absolute; left: -1.5em; top: 40%; z-index: 1; background: white; border: 1px solid #ccc; border-radius: 50%; width: 36px; height: 36px; cursor: pointer;">‹</button>
+    <div id="ig-slider" style="display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 1em; padding: 1em 0; scrollbar-width: none;">
+      <img src="{{ 'ig1.jpg' | asset_url }}" alt="Instagram 1" style="border-radius: 12px; width: 120px; flex: 0 0 auto;">
+      <img src="{{ 'ig2.jpg' | asset_url }}" alt="Instagram 2" style="border-radius: 12px; width: 120px; flex: 0 0 auto;">
+      <img src="{{ 'ig3.jpg' | asset_url }}" alt="Instagram 3" style="border-radius: 12px; width: 120px; flex: 0 0 auto;">
+      <!-- Add more images below as needed -->
+    </div>
+    <button onclick="scrollSlider(1)" style="position: absolute; right: -1.5em; top: 40%; z-index: 1; background: white; border: 1px solid #ccc; border-radius: 50%; width: 36px; height: 36px; cursor: pointer;">›</button>
   </div>
 </section>
+
+<script>
+  function scrollSlider(direction) {
+    const slider = document.getElementById('ig-slider');
+    const scrollAmount = 150;
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+
+  // Hide scrollbars (for WebKit browsers)
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #ig-slider::-webkit-scrollbar {
+      display: none;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
