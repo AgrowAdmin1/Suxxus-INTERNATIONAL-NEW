@@ -1,28 +1,49 @@
-<section class="section-pink" style="text-align:center; padding: 4em 1em;">
+<section class="section-pink" style="text-align: center; padding: 4em 1em; position: relative; overflow: hidden;">
   <h2 style="font-size: 2em; margin-bottom: 2em;">What Our Customers Say</h2>
 
-  <div style="display: flex; overflow-x: auto; gap: 1em; scroll-snap-type: x mandatory; padding-bottom: 1em;">
-    
-    <div class="testimonial-card" style="min-width: 250px; flex: 0 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2em; scroll-snap-align: start;">
+  <div id="testimonial-slider" style="display: flex; transition: transform 0.5s ease; width: max-content;">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 300px; margin: 0 1em; background: #fff; padding: 2em; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
       <img src="{{ 'customer1.jpg' | asset_url }}" alt="Customer 1" style="width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1em;">
-      <div style="font-size: 1.3em; color: #f44336;">★★★★★</div>
+      <div style="font-size: 1.2em; color: #f44336;">★★★★★</div>
       <p style="margin: 1em 0;">“Finally found cargos that fit my thighs. Game changer!”</p>
       <div style="font-size: 0.9em; color: #888;">– Vishal, Bengaluru</div>
     </div>
 
-    <div class="testimonial-card" style="min-width: 250px; flex: 0 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2em; scroll-snap-align: start;">
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 300px; margin: 0 1em; background: #fff; padding: 2em; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
       <img src="{{ 'customer2.jpg' | asset_url }}" alt="Customer 2" style="width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1em;">
-      <div style="font-size: 1.3em; color: #f44336;">★★★★★</div>
+      <div style="font-size: 1.2em; color: #f44336;">★★★★★</div>
       <p style="margin: 1em 0;">“Great fitting and breathable t-shirts!”</p>
       <div style="font-size: 0.9em; color: #888;">– Arjun, Mumbai</div>
     </div>
 
-    <div class="testimonial-card" style="min-width: 250px; flex: 0 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2em; scroll-snap-align: start;">
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 300px; margin: 0 1em; background: #fff; padding: 2em; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
       <img src="{{ 'customer3.jpg' | asset_url }}" alt="Customer 3" style="width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1em;">
-      <div style="font-size: 1.3em; color: #f44336;">★★★★★</div>
+      <div style="font-size: 1.2em; color: #f44336;">★★★★★</div>
       <p style="margin: 1em 0;">“Soft fabric, easy exchange, very happy!”</p>
       <div style="font-size: 0.9em; color: #888;">– Rohit, Delhi</div>
     </div>
-
   </div>
+
+  <!-- Slider Buttons -->
+  <button onclick="slideTestimonials(-1)" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); font-size:2em; background:none; border:none; cursor:pointer;">&#10094;</button>
+  <button onclick="slideTestimonials(1)" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); font-size:2em; background:none; border:none; cursor:pointer;">&#10095;</button>
 </section>
+
+<script>
+  let slideIndex = 0;
+  const slider = document.getElementById('testimonial-slider');
+  const cardWidth = 300 + 32; // card width + margin (300 + 2em)
+
+  function slideTestimonials(direction) {
+    const totalCards = slider.children.length;
+    slideIndex += direction;
+
+    if (slideIndex < 0) slideIndex = totalCards - 1;
+    if (slideIndex >= totalCards) slideIndex = 0;
+
+    slider.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
+  }
+</script>
