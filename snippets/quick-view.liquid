@@ -1,0 +1,13 @@
+<button class="button quick-view-btn" onclick="document.getElementById('quick-view-modal').style.display='block'">
+  <span>Quick View</span>
+</button>
+<div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" style="display:none;">
+  <div class="bg-white rounded-lg p-8 max-w-lg w-full relative">
+    <button onclick="document.getElementById('quick-view-modal').style.display='none'" class="absolute top-2 right-2 text-xl">&times;</button>
+    <!-- Product details go here -->
+    <h3 class="text-2xl font-bold mb-4">Product Name</h3>
+    <img src="" alt="Product Image" class="mb-4 rounded-lg shadow-md" style="width:100%;height:auto;">
+    <p class="mb-4">Product description and details...</p>
+    <button class="button">Add to Cart</button>
+  </div>
+</div>

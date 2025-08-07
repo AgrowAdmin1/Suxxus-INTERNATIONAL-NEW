@@ -1,0 +1,62 @@
+<section class="container py-3" style="background:#f8f9fa; border-bottom:1px solid #eee;">
+  <form id="theme-customizer-form" class="row align-items-center g-2">
+    <div class="col-auto">
+      <label for="colorScheme" class="form-label mb-0">Color Scheme:</label>
+      <select id="colorScheme" class="form-select form-select-sm">
+        <option value="default">Default</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <label for="textAlign" class="form-label mb-0">Text Align:</label>
+      <select id="textAlign" class="form-select form-select-sm">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <label for="fontSize" class="form-label mb-0">Font Size:</label>
+      <select id="fontSize" class="form-select form-select-sm">
+        <option value="1em">Normal</option>
+        <option value="1.2em">Large</option>
+        <option value="1.4em">Extra Large</option>
+      </select>
+    </div>
+  </form>
+</section>
+<script>
+(function() {
+  var root = document.documentElement;
+  document.getElementById('colorScheme').addEventListener('change', function(e) {
+    var v = e.target.value;
+    root.classList.remove('theme-blue','theme-green','theme-yellow','theme-pink','theme-dark');
+    if(v !== 'default') root.classList.add('theme-' + v);
+  });
+  document.getElementById('textAlign').addEventListener('change', function(e) {
+    root.style.setProperty('--custom-text-align', e.target.value);
+  });
+  document.getElementById('fontSize').addEventListener('change', function(e) {
+    root.style.setProperty('--custom-font-size', e.target.value);
+  });
+})();
+</script>
+<style>
+:root {
+  --custom-text-align: left;
+  --custom-font-size: 1em;
+}
+body, .section-blue, .section-green, .section-yellow, .section-pink {
+  text-align: var(--custom-text-align);
+  font-size: var(--custom-font-size);
+}
+.theme-blue { --primary-bg: #e3f2fd; }
+.theme-green { --primary-bg: #e8f5e9; }
+.theme-yellow { --primary-bg: #fffde7; }
+.theme-pink { --primary-bg: #fce4ec; }
+.theme-dark { --primary-bg: #222; --primary-text: #fff; }
+</style>

@@ -1,0 +1,30 @@
+{% section 'header' %}
+<main>
+  <h1>Your Cart</h1>
+  <form action="/cart" method="post">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
+          <tr>
+            <td>{{ item.product.title }}</td>
+            <td><input type="number" name="updates[]" value="{{ item.quantity }}" min="1"></td>
+            <td>{{ item.line_price | money }}</td>
+            <td><a href="/cart/change?id={{ item.id }}&quantity=0">Remove</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>Total: {{ cart.total_price | money }}</p>
+    <button type="submit">Update Cart</button>
+    <a href="/checkout" class="btn">Checkout</a>
+  </form>
+</main>
+{% section 'footer' %}

@@ -1,0 +1,17 @@
+{% section 'header' %}
+<main>
+  <h1>Account</h1>
+  {% if customer %}
+    <p>Welcome, {{ customer.first_name }}!</p>
+    <a href="/account/orders">View Orders</a>
+    <a href="/account/logout">Logout</a>
+  {% else %}
+    <form method="post" action="/account/login">
+      <input type="email" name="customer[email]" placeholder="Email" required>
+      <input type="password" name="customer[password]" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <a href="/account/register">Register</a>
+  {% endif %}
+</main>
+{% section 'footer' %}

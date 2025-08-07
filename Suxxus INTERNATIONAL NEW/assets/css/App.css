@@ -1,0 +1,138 @@
+#root {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+:root {
+  --primary-bg: #fff;
+  --primary-text: #222;
+  --accent: #f44336;
+  --pastel-blue: #e3f2fd;
+  --pastel-green: #e8f5e9;
+  --pastel-yellow: #fffde7;
+  --pastel-pink: #fce4ec;
+  --font-main: 'Poppins', 'Inter', Arial, sans-serif;
+}
+body {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  letter-spacing: 1px;
+}
+.header, .footer {
+  background: var(--primary-bg);
+  border-bottom: 1px solid #eee;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button, .btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.75em 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button:hover, .btn:hover {
+  background: #d32f2f;
+}
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+  position: relative;
+}
+.product-card img {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+.sale-badge {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.3em 1em;
+  font-size: 0.9em;
+  font-weight: bold;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  margin: 2em 0;
+}
+.testimonial-card {
+  background: var(--pastel-pink);
+  border-radius: 16px;
+  padding: 1.5em;
+  margin: 1em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.footer {
+  background: var(--primary-bg);
+  border-top: 1px solid #eee;
+  padding: 2em;
+  text-align: center;
+  font-size: 0.95em;
+  color: #888;
+}
+.footer a {
+  color: var(--accent);
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.section-blue {
+  background: var(--pastel-blue);
+  padding: 2em 0;
+}
+.section-green {
+  background: var(--pastel-green);
+  padding: 2em 0;
+}
+.section-yellow {
+  background: var(--pastel-yellow);
+  padding: 2em 0;
+}
+.section-pink {
+  background: var(--pastel-pink);
+  padding: 2em 0;
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+.read-the-docs {
+  color: #888;
+}

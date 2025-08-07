@@ -1,0 +1,8 @@
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="reviews">
+    {% for review in shop.metafields.reviews %}
+      {% render 'review', review: review %}
+    {% endfor %}
+  </div>
+</section>

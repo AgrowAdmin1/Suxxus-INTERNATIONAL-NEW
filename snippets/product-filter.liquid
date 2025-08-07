@@ -1,0 +1,9 @@
+<form method="get" action="/collections/{{ collection.handle }}">
+  <select name="filter">
+    <option value="">All</option>
+    {% for tag in collection.all_tags %}
+      <option value="{{ tag }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Filter</button>
+</form>

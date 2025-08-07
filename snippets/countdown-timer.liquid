@@ -1,0 +1,21 @@
+<div id="countdown-timer" class="bg-yellow-100 text-orange-700 font-bold rounded-lg px-4 py-2 mb-4 text-center">
+  <span>Festival Sale ends in: <span id="timer"></span></span>
+</div>
+<script>
+  function startCountdown(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      display.textContent = minutes + ":" + seconds;
+      if (--timer < 0) { timer = 0; }
+    }, 1000);
+  }
+  window.onload = function () {
+    var duration = 60 * 60 * 24; // 24 hours
+    var display = document.getElementById('timer');
+    startCountdown(duration, display);
+  };
+</script>

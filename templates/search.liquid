@@ -1,0 +1,12 @@
+{% section 'header' %}
+<main>
+  <h1>Search Results</h1>
+  <div class="grid">
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+        {% render 'product-card', product: item %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</main>
+{% section 'footer' %}

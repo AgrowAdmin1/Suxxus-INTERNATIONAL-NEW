@@ -1,0 +1,54 @@
+<div class="container py-2" style="background:#f8f9fa; border-bottom:1px solid #eee;">
+  <form id="animation-customizer-form" class="row align-items-center g-2">
+    <div class="col-auto">
+      <label for="slideAnim" class="form-label mb-0">Slide Animation:</label>
+      <select id="slideAnim" class="form-select form-select-sm">
+        <option value="none">None</option>
+        <option value="slide-left">Slide Left</option>
+        <option value="slide-right">Slide Right</option>
+        <option value="slide-up">Slide Up</option>
+        <option value="slide-down">Slide Down</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <label for="hoverAnim" class="form-label mb-0">Hover Effect:</label>
+      <select id="hoverAnim" class="form-select form-select-sm">
+        <option value="none">None</option>
+        <option value="scale">Scale</option>
+        <option value="shadow">Shadow</option>
+        <option value="rotate">Rotate</option>
+        <option value="pulse">Pulse</option>
+      </select>
+    </div>
+  </form>
+</div>
+<script>
+(function() {
+  var root = document.documentElement;
+  document.getElementById('slideAnim').addEventListener('change', function(e) {
+    var v = e.target.value;
+    root.classList.remove('slide-left','slide-right','slide-up','slide-down');
+    if(v !== 'none') root.classList.add(v);
+  });
+  document.getElementById('hoverAnim').addEventListener('change', function(e) {
+    var v = e.target.value;
+    root.classList.remove('hover-scale','hover-shadow','hover-rotate','hover-pulse');
+    if(v !== 'none') root.classList.add('hover-' + v);
+  });
+})();
+</script>
+<style>
+.slide-left .product-card, .slide-left .category-card { animation: slideLeft 0.7s; }
+.slide-right .product-card, .slide-right .category-card { animation: slideRight 0.7s; }
+.slide-up .product-card, .slide-up .category-card { animation: slideUp 0.7s; }
+.slide-down .product-card, .slide-down .category-card { animation: slideDown 0.7s; }
+@keyframes slideLeft { from { transform:translateX(60px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes slideRight { from { transform:translateX(-60px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes slideUp { from { transform:translateY(60px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes slideDown { from { transform:translateY(-60px); opacity:0; } to { transform:none; opacity:1; } }
+.hover-scale .product-card:hover, .hover-scale .category-card:hover { transform:scale(1.07); transition:transform 0.3s; }
+.hover-shadow .product-card:hover, .hover-shadow .category-card:hover { box-shadow:0 8px 32px #ffd70055; transition:box-shadow 0.3s; }
+.hover-rotate .product-card:hover, .hover-rotate .category-card:hover { transform:rotate(-2deg) scale(1.03); transition:transform 0.3s; }
+.hover-pulse .product-card:hover, .hover-pulse .category-card:hover { animation:pulse 0.7s; }
+@keyframes pulse { 0% { transform:scale(1); } 50% { transform:scale(1.09); } 100% { transform:scale(1); } }
+</style>

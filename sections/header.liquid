@@ -1,0 +1,49 @@
+<header class="header" style="display:flex; justify-content:space-between; align-items:center; padding:1.5em 2em;">
+  <div style="display:flex; flex-direction:column; align-items:flex-start;">
+    <div class="logo" style="font-size:2em; font-weight:bold; letter-spacing:2px; color:var(--accent);">SUXXUS</div>
+    <div class="tagline" style="font-size:1em; color:#888;">One Stop for Premium Plus-Size Collection</div>
+    <div class="festive-message" style="font-size:0.95em; color:var(--ganesha-gold);">Happy Ganesha Fest & Independence Day Offers!</div>
+  </div>
+  <nav style="flex:1; margin-left:3em;">
+    <ul style="display:flex; gap:2em; list-style:none; margin:0; padding:0; align-items:center;">
+      <li style="position:relative;">
+        <a href="/collections/shirts" class="nav-link">Shirts</a>
+        <ul class="dropdown" style="display:none; position:absolute; left:0; top:2em; background:#fff; box-shadow:0 2px 8px #eee; border-radius:8px; padding:0.5em 0; min-width:160px; z-index:10;">
+          <li><a href="/collections/shirts-casual">Casual Shirts</a></li>
+          <li><a href="/collections/shirts-formal">Formal Shirts</a></li>
+        </ul>
+      </li>
+      <li style="position:relative;">
+        <a href="/collections/t-shirts" class="nav-link">T-Shirts</a>
+        <ul class="dropdown" style="display:none; position:absolute; left:0; top:2em; background:#fff; box-shadow:0 2px 8px #eee; border-radius:8px; padding:0.5em 0; min-width:160px; z-index:10;">
+          <li><a href="/collections/tshirts-graphic">Graphic Tees</a></li>
+          <li><a href="/collections/tshirts-solid">Solid Tees</a></li>
+        </ul>
+      </li>
+      <li><a href="/collections/cargos-shorts" class="nav-link">Cargos & Shorts</a></li>
+      <li><a href="/collections/jeans" class="nav-link">Jeans</a></li>
+      <li><a href="/collections/all" class="nav-link">All Products</a></li>
+      <li><a href="/collections/sale" class="nav-link" style="color:var(--accent); font-weight:bold;">Sale</a></li>
+    </ul>
+  </nav>
+  <div style="display:flex; gap:1.2em; align-items:center;">
+    <a href="/search" title="Search" style="font-size:1.2em; color:#888;">🔍</a>
+    <a href="/account" title="Account" style="font-size:1.2em; color:#888;">👤</a>
+    <a href="/cart" title="Cart" style="font-size:1.2em; color:var(--accent);">🛒</a>
+  </div>
+</header>
+<script>
+// Simple dropdown on hover for nav categories
+document.querySelectorAll('.header .nav-link').forEach(function(link) {
+  var li = link.parentElement;
+  var dropdown = li.querySelector('.dropdown');
+  if(dropdown) {
+    li.addEventListener('mouseenter', function() {
+      dropdown.style.display = 'block';
+    });
+    li.addEventListener('mouseleave', function() {
+      dropdown.style.display = 'none';
+    });
+  }
+});
+</script>

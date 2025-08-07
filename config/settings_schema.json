@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_name",
+        "label": "Store name",
+        "default": "Big Banana"
+      }
+    ]
+  }
+]

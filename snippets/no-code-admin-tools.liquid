@@ -1,0 +1,21 @@
+<div class="admin-tool" style="background:#e3f2fd; border:1px solid #90caf9; border-radius:8px; padding:1em; margin:1em 0;">
+  <h5 style="color:#1976d2;">No-Code Admin Tools</h5>
+  <button class="btn btn-primary mb-2" onclick="updateHomepageBanner(prompt('Enter new banner image URL:'))">Update Homepage Banner</button>
+  <button class="btn btn-success mb-2" onclick="reorderProductGrid(prompt('Enter new product order (comma-separated IDs):'))">Reorder Product Grid</button>
+  <button class="btn btn-warning mb-2" onclick="changePromoPopup(prompt('Enter new promo popup text:'))">Change Promo Popup</button>
+  <button class="btn btn-info mb-2" onclick="updateTestimonials(prompt('Enter new testimonials (JSON):'))">Update Testimonials</button>
+  <button class="btn btn-danger mb-2" onclick="editFooterLinks(prompt('Enter new footer links (JSON):'))">Edit Footer Links</button>
+  <div style="font-size:0.95em; color:#888;">(Visible only in Admin mode)</div>
+</div>
+
+<div class="dev-tool" style="background:#fff3e0; border:1px solid #ffb74d; border-radius:8px; padding:1em; margin:1em 0;">
+  <h5 style="color:#f57c00;">Developer Optimization Tools</h5>
+  <button class="btn btn-outline-primary mb-2" onclick="minifyCSS()">Minify CSS</button>
+  <button class="btn btn-outline-success mb-2" onclick="optimizeJS()">Optimize JS</button>
+  <button class="btn btn-outline-warning mb-2" onclick="extractCriticalCSS()">Extract Critical CSS</button>
+  <button class="btn btn-outline-info mb-2" onclick="enableLazyLoading()">Enable Lazy Loading</button>
+  <button class="btn btn-outline-danger mb-2" onclick="clearCache()">Clear Cache</button>
+</div>
+<script src="{{ 'shopify-action-integration.js' | asset_url }}"></script>
+  <div style="font-size:0.95em; color:#888;">(Visible only in Developer mode)</div>
+</div>

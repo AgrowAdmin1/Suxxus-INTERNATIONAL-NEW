@@ -1,0 +1,13 @@
+{% section 'header' %}
+<main>
+  <h1>Order Summary</h1>
+  <p>Order #: {{ order.name }}</p>
+  <ul>
+    {% for item in order.line_items %}
+      <li>{{ item.title }} x {{ item.quantity }} - {{ item.price | money }}</li>
+    {% endfor %}
+  </ul>
+  <p>Total: {{ order.total_price | money }}</p>
+  <p>Status: {{ order.financial_status }}</p>
+</main>
+{% section 'footer' %}

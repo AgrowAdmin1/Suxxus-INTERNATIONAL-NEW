@@ -1,0 +1,20 @@
+<div class="account-dashboard bg-white rounded-xl shadow-lg p-8">
+  <h2 class="text-2xl font-bold mb-4">Welcome, {{ customer.first_name }}</h2>
+  <div class="mb-6">
+    <h3 class="font-bold mb-2">Order Tracking</h3>
+    {% for order in customer.orders %}
+      <div class="mb-2 p-2 border rounded-lg">
+        <span>Order #{{ order.name }}</span> - <span>{{ order.financial_status }}</span> - <span>{{ order.fulfillment_status }}</span>
+      </div>
+    {% endfor %}
+  </div>
+  <div>
+    <h3 class="font-bold mb-2">Wishlist</h3>
+    {% for item in customer.metafields.wishlist %}
+      <div class="mb-2 p-2 border rounded-lg">
+        <span>{{ item.title }}</span>
+        <a href="{{ item.url }}" class="button ml-2">View</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

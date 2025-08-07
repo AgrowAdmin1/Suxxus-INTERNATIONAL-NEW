@@ -1,0 +1,25 @@
+<div class="swiper-container testimonial-swiper">
+  <div class="swiper-wrapper">
+    {% for review in shop.metafields.reviews %}
+      <div class="swiper-slide testimonial-card">
+        <img src="{{ review.image }}" alt="{{ review.product }}">
+        <h4>{{ review.name }}</h4>
+        <p>{{ review.text }}</p>
+        <span>{{ review.product }}</span>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<script>
+  var testimonialSwiper = new Swiper('.testimonial-swiper', {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loop: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: { 900: { slidesPerView: 1 } }
+  });
+</script>

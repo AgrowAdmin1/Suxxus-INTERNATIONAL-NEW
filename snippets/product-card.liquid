@@ -1,0 +1,24 @@
+<div class="product-card">
+  <div class="product-images" style="display:flex; gap:0.5em; justify-content:center;">
+    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}" style="width:70%; border-radius:12px; box-shadow:0 2px 8px #e3f2fd88;">
+    {% for image in product.images limit:2 %}
+      <img src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}" style="width:25%; border-radius:8px; box-shadow:0 2px 8px #e3f2fd44;">
+    {% endfor %}
+  </div>
+  {% if product.compare_at_price > product.price %}
+    <span class="sale-badge">SALE</span>
+  {% endif %}
+  <h3>{{ product.title }}</h3>
+  <p>
+    <span style="color: #f44336; font-weight: bold;">{{ product.price | money }}</span>
+    {% if product.compare_at_price > product.price %}
+      <span style="text-decoration: line-through; margin-left: 8px; color: #888;">{{ product.compare_at_price | money }}</span>
+    {% endif %}
+  </p>
+  <a href="{{ product.url }}" class="button"><span>Choose Options</span></a>
+  {% render 'wishlist-button' %}
+  <form method="post" action="/cart/add">
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+    <button type="submit">Add to Cart</button>
+  </form>
+</div>

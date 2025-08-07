@@ -1,0 +1,32 @@
+<section class="product-grid">
+  <h2>Featured Products</h2>
+{% render 'advanced-search' %}
+{% render 'promo-popup' %}
+{% render 'countdown-timer' %}
+{% render 'testimonial-carousel' %}
+<section class="grid" id="products">
+    <form id="size-filter-form" style="margin-bottom:2em; text-align:right;">
+      <label for="size-filter" style="font-weight:600; margin-right:0.5em;">Filter by Size:</label>
+      <select id="size-filter" name="size" onchange="this.form.submit()" style="padding:0.5em 1em; border-radius:8px; border:1px solid #ddd;">
+        <option value="">All Sizes</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+    </form>
+  <div class="carousel" style="display:flex; overflow-x:auto; gap:2em; scroll-snap-type:x mandatory;">
+    {% assign selected_size = request.params.size %}
+    {% for product in collections['featured'].products %}
+      {% if selected_size == blank or product.variants | where: 'option1', selected_size | size > 0 %}
+        <div class="carousel-item" style="min-width:320px; scroll-snap-align:start;">
+          {% render 'product-card', product: product %}
+          {% render 'quick-view' %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </section>
+</section>

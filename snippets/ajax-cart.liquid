@@ -1,0 +1,15 @@
+<div id="ajax-cart" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl z-50 p-6 overflow-y-auto" style="display:none;">
+  <h3 class="text-2xl font-bold mb-4">Your Cart</h3>
+  <div id="cart-items"></div>
+  <div class="mt-4">
+    <span class="font-bold">Total: </span><span id="cart-total"></span>
+  </div>
+  <button onclick="document.getElementById('ajax-cart').style.display='none'" class="button mt-6">Close</button>
+  <a href="/checkout" class="button mt-2">Checkout</a>
+</div>
+<script>
+function openCart() {
+  document.getElementById('ajax-cart').style.display = 'block';
+  // Fetch cart data via AJAX and update #cart-items and #cart-total
+}
+</script>

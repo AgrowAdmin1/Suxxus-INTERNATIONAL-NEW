@@ -1,0 +1,17 @@
+<section class="payment-section" id="payment">
+  <h2>Payment</h2>
+  <form method="post" action="/checkout">
+    <input type="text" name="cardholder" placeholder="Cardholder Name" required />
+    <input type="text" name="cardnumber" placeholder="Card Number" required />
+    <input type="text" name="expiry" placeholder="Expiry (MM/YY)" required />
+    <input type="text" name="cvv" placeholder="CVV" required />
+    <select name="method" required>
+      <option value="">Choose Payment Method</option>
+      <option value="credit">Credit Card</option>
+      <option value="debit">Debit Card</option>
+      <option value="upi">UPI</option>
+      <option value="netbanking">Net Banking</option>
+    </select>
+    <button class="button" type="submit">Pay Now</button>
+  </form>
+</section>

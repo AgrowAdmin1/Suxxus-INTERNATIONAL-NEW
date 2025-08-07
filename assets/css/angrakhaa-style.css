@@ -1,0 +1,144 @@
+/* Angrakhaa.com inspired CSS */
+:root {
+  --primary-bg: #fff;
+  --primary-text: #222;
+  --accent: #f44336;
+  --pastel-blue: #e3f2fd;
+  --pastel-green: #e8f5e9;
+  --pastel-yellow: #fffde7;
+  --pastel-pink: #fce4ec;
+  --font-main: 'Poppins', 'Inter', Arial, sans-serif;
+}
+body {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  letter-spacing: 1px;
+}
+.header, .footer {
+  background: var(--primary-bg);
+  border-bottom: 1px solid #eee;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button, .btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.75em 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  --festive-gradient: linear-gradient(90deg, #ffd700 0%, #ff7043 50%, #388e3c 100%);
+  --ganesha-gold: #ffd700;
+  --independence-green: #388e3c;
+  --independence-orange: #ff7043;
+  transition: background 0.2s;
+}
+.button:hover, .btn:hover {
+  background: var(--festive-gradient);
+  border-bottom: 2px solid var(--ganesha-gold);
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 24px var(--ganesha-gold);
+
+}
+.product-card img {
+  border-radius: 12px;
+  font-size: 2.5em;
+  font-weight: 900;
+  color: var(--independence-green);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px var(--ganesha-gold);
+  background: #fffbe7;
+  border-radius: 12px;
+  padding: 0.2em 1em;
+  box-shadow: 0 2px 8px var(--ganesha-gold);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.3em 1em;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--independence-orange);
+  margin-top: 0.2em;
+  letter-spacing: 1px;
+  background: #fffbe7;
+  border-radius: 8px;
+  padding: 0.3em 1em;
+  box-shadow: 0 2px 8px var(--ganesha-gold);
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: bold;
+  position: absolute;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-top: 0.3em;
+  background: #fffbe7;
+  border-radius: 8px;
+  padding: 0.2em 0.8em;
+  box-shadow: 0 2px 8px var(--ganesha-gold);
+  display: inline-block;
+  top: 1em;
+  left: 1em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  margin: 2em 0;
+}
+.testimonial-card {
+  background: var(--pastel-pink);
+  border-radius: 16px;
+  padding: 1.5em;
+  margin: 1em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.footer {
+  background: var(--primary-bg);
+  border-top: 1px solid #eee;
+  padding: 2em;
+  text-align: center;
+  font-size: 0.95em;
+  color: #888;
+}
+.footer a {
+  color: var(--accent);
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.section-blue {
+  background: var(--pastel-blue);
+  padding: 2em 0;
+}
+.section-green {
+  background: var(--pastel-green);
+  padding: 2em 0;
+}
+.section-yellow {
+  background: var(--pastel-yellow);
+  padding: 2em 0;
+}
+.section-pink {
+  background: var(--pastel-pink);
+  padding: 2em 0;
+}

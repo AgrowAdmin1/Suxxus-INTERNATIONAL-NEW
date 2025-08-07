@@ -1,0 +1,31 @@
+<div class="container py-2" style="background:#fffbe7; border-bottom:1px solid #ffd700; margin-bottom:0.5em;">
+  <form id="optimization-toggle-form" class="row align-items-center g-2">
+    <div class="col-auto">
+      <label class="form-label mb-0">Optimization Mode:</label>
+      <select id="optimizationMode" class="form-select form-select-sm">
+        <option value="normal">Normal (User)</option>
+        <option value="admin">Admin (Show No-Code Tools)</option>
+        <option value="dev">Developer (Show Optimization Tools)</option>
+      </select>
+    </div>
+  </form>
+</div>
+<script>
+(function() {
+  var root = document.documentElement;
+  document.getElementById('optimizationMode').addEventListener('change', function(e) {
+    var v = e.target.value;
+    root.classList.remove('mode-admin','mode-dev');
+    if(v === 'admin') root.classList.add('mode-admin');
+    if(v === 'dev') root.classList.add('mode-dev');
+    // Optionally, show/hide UI elements for admin/dev
+    document.querySelectorAll('.admin-tool').forEach(function(el){ el.style.display = v==='admin' ? '' : 'none'; });
+    document.querySelectorAll('.dev-tool').forEach(function(el){ el.style.display = v==='dev' ? '' : 'none'; });
+  });
+})();
+</script>
+<style>
+.mode-admin .admin-tool { display:block !important; }
+.mode-dev .dev-tool { display:block !important; }
+.admin-tool, .dev-tool { display:none; }
+</style>

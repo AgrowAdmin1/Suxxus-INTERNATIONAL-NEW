@@ -1,0 +1,13 @@
+{% if customer %}
+  {% assign wishlist = customer.metafields.wishlist.products | split: ',' %}
+  {% if product.id | append: '' | in: wishlist %}
+    <button disabled>Wishlisted</button>
+  {% else %}
+    <form method="post" action="/apps/wishlist/add">
+      <input type="hidden" name="product_id" value="{{ product.id }}">
+      <button type="submit">Add to Wishlist</button>
+    </form>
+  {% endif %}
+{% else %}
+  <a href="/account/login">Login to add to wishlist</a>
+{% endif %}
